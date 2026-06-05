@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:45:44 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/05 12:18:10 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/05 14:58:55 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@ int	main(int argc, char **argv)
 
 	ft_printf("B: ");
 	stack_print(b);
+	
+	ft_printf("Minimo: %d\n", stack_min(a));
+	ft_printf("Maximo: %d\n", stack_max(a));
 
 	stack_clear(&a);
 	stack_clear(&b);
+	
 	return (0);
 }
+

@@ -6,7 +6,7 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/05 10:44:15 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/05 14:00:11 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ AR = ar rcs
 SRC = stack_init.c \
 	  stack_utils.c \
 	  swap.c \
-	  push.c
+	  push.c \
+	  rotate.c \
+	  reverse_rotate \
+	  stack_search.c
 
 OBJ = $(SRC:.c=.o)
 

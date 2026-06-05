@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/05 12:16:57 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/05 16:13:08 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+int		stack_min(t_stack *stack);
+int		stack_max(t_stack *stack);
+t_stack	*stack_min_node(t_stack *stack);
+t_stack	*stack_max_node(t_stack *stack);
 void	stack_print(t_stack *stack);
 
 #endif
