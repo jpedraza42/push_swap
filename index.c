@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:09:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:35:16 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/09 11:20:51 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/10 10:40:28 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-static void	push_stack(t_stack **src, t_stack **dst)
-{
-	t_stack	*tmp;
 
-	if (!src || !*src)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
+static t_stack	*find_min_unindexed(t_stack *stack)
+{
+	t_stack	*min;
+
+	min = NULL;
+	while (stack)
+	{
+		if (stack->index == -1 && (!min || stack->value < min->value))
+			min = stack;
+		stack = stack->next;
+	}
+	return (min);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	assign_indexes(t_stack *stack)
 {
-	push_stack(b, a);
-	ft_printf("pa\n");
-}
+	t_stack	*min;
+	int		index;
 
-void	pb(t_stack **a, t_stack **b)
-{
-	push_stack(a, b);
-	ft_printf("pb\n");
+	index = 0;
+	min = find_min_unindexed(stack);
+	while (min)
+	{
+		min->index = index;
+		index++;
+		min = find_min_unindexed(stack);
+	}
 }

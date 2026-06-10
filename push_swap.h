@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/05 16:13:08 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/10 12:30:43 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,24 @@ int		stack_min(t_stack *stack);
 int		stack_max(t_stack *stack);
 t_stack	*stack_min_node(t_stack *stack);
 t_stack	*stack_max_node(t_stack *stack);
+int		is_number(char *str);
+long	ft_atol(const char *nptr);
+int		has_duplicates(t_stack *stack);
+void	error_exit(void);
+void	parse_args(t_stack **a, char **argv);
+void	error_exit(void);
+int		stack_position(t_stack *stack, t_stack *target);
+int		stack_min_position(t_stack *stack);
+int		stack_max_position(t_stack *stack);
+int		is_top_half(t_stack *stack, t_stack *node);
+void	assign_indexes(t_stack *stack);
+int		get_max_bits(t_stack *stack);
+int		get_bit(int index, int bit);
+void	radix_sort(t_stack **a, t_stack **b);
+void	sort_stack(t_stack **a, t_stack **b);
+int		has_index_under(t_stack *stack, int limit);
+void	bring_max_to_top(t_stack **b);
+void	chunk_sort(t_stack **a, t_stack **b);
 void	stack_print(t_stack *stack);
 
 #endif

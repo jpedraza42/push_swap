@@ -6,7 +6,7 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/05 14:00:11 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/09 10:14:56 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,11 @@ SRC = stack_init.c \
 	  push.c \
 	  rotate.c \
 	  reverse_rotate \
-	  stack_search.c
+	  stack_search.c \
+	  stack_position.c \
+	  parse_args.c \
+	  parse_utils.c \
+	  parse_error.c
 
 OBJ = $(SRC:.c=.o)
 

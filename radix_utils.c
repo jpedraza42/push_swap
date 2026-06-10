@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   radix_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:09:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:35:16 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/10 11:15:15 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/10 11:21:56 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
-static void	push_stack(t_stack **src, t_stack **dst)
-{
-	t_stack	*tmp;
 
-	if (!src || !*src)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
+int	get_max_bits(t_stack *stack)
+{
+	int	max_index;
+	int	bits;
+
+	max_index = stack_size(stack) - 1;
+	bits = 0;
+	while ((max_index >> bits) != 0)
+		bits++;
+	return (bits);
 }
 
-void	pa(t_stack **a, t_stack **b)
+int	get_bit(int index, int bit)
 {
-	push_stack(b, a);
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push_stack(a, b);
-	ft_printf("pb\n");
+	return ((index >> bit) & 1);
 }
