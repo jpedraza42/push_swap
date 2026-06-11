@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 14:25:49 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 10:43:51 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:51:53 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	stack_print(t_stack *stack)
 {
 	while (stack)
 	{
-		ft_printf("[%d]", stack->value);
 		ft_printf("[%d|%d]", stack->value, stack->index);
 		if (stack->next)
 			ft_printf(" -> ");

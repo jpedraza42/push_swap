@@ -6,45 +6,59 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/09 10:14:56 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/11 10:43:13 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-SRC = stack_init.c \
-	  stack_utils.c \
-	  swap.c \
-	  push.c \
-	  rotate.c \
-	  reverse_rotate \
-	  stack_search.c \
-	  stack_position.c \
-	  parse_args.c \
-	  parse_utils.c \
-	  parse_error.c
+
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+SRC = main.c \
+	stack_init.c \
+	stack_utils.c \
+	stack_search.c \
+	stack_position.c \
+	index.c \
+	swap.c \
+	push.c \
+	rotate.c \
+	reverse_rotate.c \
+	parse_args.c \
+	parse_utils.c \
+	parse_error.c \
+	radix_utils.c \
+	complex_sort.c \
+	sort.c \
+	chunk_utils.c \
+	medium_sort.c \
+	simple_sort.c
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDES = -I includes
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
-%.o: %.c
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re

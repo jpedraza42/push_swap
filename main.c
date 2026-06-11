@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:45:44 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:52:52 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:54:37 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	parse_args(&a, argv);
 	assign_indexes(a);
-	radix_sort(&a, &b);
+	sort_stack(&a, &b);
 	stack_clear(&a);
 	stack_clear(&b);
 	return (0);

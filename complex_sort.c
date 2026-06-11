@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:31:03 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:49:30 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/10 13:15:51 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	radix_sort(t_stack **a, t_stack **b)
 			pa(a, b);
 		bit++;
 	}
-	ft_printf("max_bits = %d\n", max_bits);
+	//ft_printf("max_bits = %d\n", max_bits);
 }

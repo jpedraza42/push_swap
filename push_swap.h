@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:30:43 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/11 10:41:14 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ long	ft_atol(const char *nptr);
 int		has_duplicates(t_stack *stack);
 void	error_exit(void);
 void	parse_args(t_stack **a, char **argv);
-void	error_exit(void);
 int		stack_position(t_stack *stack, t_stack *target);
 int		stack_min_position(t_stack *stack);
 int		stack_max_position(t_stack *stack);
@@ -63,6 +62,11 @@ void	sort_stack(t_stack **a, t_stack **b);
 int		has_index_under(t_stack *stack, int limit);
 void	bring_max_to_top(t_stack **b);
 void	chunk_sort(t_stack **a, t_stack **b);
+t_stack	*stack_max_index_node(t_stack *stack);
+int		get_chunk_size(int size);
+t_stack	*find_next_index_under(t_stack *stack, int limit);
+void	simple_sort(t_stack **a, t_stack **b);
 void	stack_print(t_stack *stack);
+
 
 #endif
