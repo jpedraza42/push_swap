@@ -6,11 +6,11 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 11:02:36 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/05 11:38:43 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:43:16 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 static void	rotate_stack(t_stack **stack)
 {
@@ -26,21 +26,24 @@ static void	rotate_stack(t_stack **stack)
 	last->next = first;
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, t_bench *bench)
 {
 	rotate_stack(a);
+	bench_count(bench, "ra");
 	ft_printf("ra\n");
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, t_bench *bench)
 {
 	rotate_stack(b);
+	bench_count(bench, "rb");
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, t_bench *bench)
 {
 	rotate_stack(a);
 	rotate_stack(b);
+	bench_count(bench, "rr");
 	ft_printf("rr\n");
 }

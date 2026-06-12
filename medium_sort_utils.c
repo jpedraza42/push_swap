@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:33:08 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 12:33:52 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:19:57 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ static void	restore_stack(t_stack **a, t_stack **b)
 		pa(a, b);
 	}
 }
-

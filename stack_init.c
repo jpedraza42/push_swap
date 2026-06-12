@@ -6,11 +6,11 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:08:28 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/03 17:52:13 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/11 17:13:33 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	init_stack(t_stack **a, char **argv)
 {
@@ -36,7 +36,6 @@ t_stack	*stack_new(int value)
 	node->next = NULL;
 	return (node);
 }
-
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {

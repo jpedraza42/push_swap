@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:28:34 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/11 10:30:55 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:52:26 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	has_index_under(t_stack *stack, int limit)
 	return (0);
 }
 
-void	bring_max_to_top(t_stack **b)
+void	bring_max_to_top(t_stack **b, t_bench *bench)
 {
 	t_stack	*max;
 
@@ -31,9 +31,9 @@ void	bring_max_to_top(t_stack **b)
 	while (*b != max)
 	{
 		if (is_top_half(*b, max))
-			rb(b);
+			rb(b, bench);
 		else
-			rrb(b);
+			rrb(b, bench);
 	}
 }
 

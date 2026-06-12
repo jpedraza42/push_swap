@@ -6,20 +6,25 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/08 10:57:31 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 10:29:46 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void	parse_args(t_stack **a, char **argv)
+void	parse_args(t_stack **a, char **argv, int start)
 {
 	int		i;
 	long	num;
 
-	i = 1;
+	i = start;
 	while (argv[i])
 	{
+		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
+		{
+			i++;
+			continue ;
+		}
 		if (!is_number(argv[i]))
 			error_exit();
 		num = ft_atol(argv[i]);

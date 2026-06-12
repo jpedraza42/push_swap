@@ -6,13 +6,13 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 11:31:03 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/10 13:15:51 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 11:48:52 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	radix_sort(t_stack **a, t_stack **b)
+void	radix_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	max_bits;
 	int	bit;
@@ -28,14 +28,13 @@ void	radix_sort(t_stack **a, t_stack **b)
 		while (i < size)
 		{
 			if (get_bit((*a)->index, bit) == 0)
-				pb(a, b);
+				pb(a, b, bench);
 			else
-				ra(a);
+				ra(a, bench);
 			i++;
 		}
 		while (*b)
-			pa(a, b);
+			pa(a, b, bench);
 		bit++;
 	}
-	//ft_printf("max_bits = %d\n", max_bits);
 }

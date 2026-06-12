@@ -6,7 +6,7 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/11 10:43:13 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/12 18:01:34 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,11 @@ SRC = main.c \
 	sort.c \
 	chunk_utils.c \
 	medium_sort.c \
-	simple_sort.c
+	simple_sort.c \
+	strategy.c \
+	adaptive.c \
+	bench.c \
+	bench_print.c
 
 OBJ = $(SRC:.c=.o)
 
