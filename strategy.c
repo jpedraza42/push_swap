@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:03:42 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 18:29:19 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:56:13 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ t_strategy	get_strategy(char **argv)
 void	execute_strategy(t_strategy strategy, t_stack **a, t_stack **b,
 		t_bench *bench)
 {
+	if (stack_is_sorted(*a))
+	{
+		bench->strategy = "Already sorted";
+		bench->complexity = "O(1)";
+		return ;
+	}
 	if (strategy == SIMPLE)
 	{
 		bench->strategy = "Simple";

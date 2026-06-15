@@ -6,11 +6,12 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/12 18:01:34 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/15 11:43:37 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -31,6 +32,7 @@ SRC = main.c \
 	parse_args.c \
 	parse_utils.c \
 	parse_error.c \
+	parse_duplicates.c \
 	radix_utils.c \
 	complex_sort.c \
 	sort.c \
@@ -42,7 +44,30 @@ SRC = main.c \
 	bench.c \
 	bench_print.c
 
+COMMON_SRC = stack_init.c \
+	stack_utils.c \
+	stack_search.c \
+	stack_position.c \
+	index.c \
+	parse_args_bonus.c\
+	parse_utils.c \
+	parse_error.c \
+	parse_duplicates.c \
+	bench.c \
+	checker_exec_bonus.c \
+	checker_read_bonus.c \
+	checker_swap_bonus.c \
+	checker_push_bonus.c \
+	checker_rotate_bonus.c \
+	checker_reverse_rotate_bonus.c \
+	get_next_line/get_next_line_bonus.c \
+	get_next_line/get_next_line_utils_bonus.c
+
+BONUS_SRC = checker_bonus.c \
+	$(COMMON_SRC)
+
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
@@ -52,17 +77,22 @@ $(LIBFT):
 $(NAME): $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBFT) -o $(BONUS_NAME)
+
 %.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

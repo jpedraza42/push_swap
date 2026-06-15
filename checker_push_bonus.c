@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   checker_push_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:15:45 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 19:40:17 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 19:40:33 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_args(t_stack **a, char **argv, int start)
+static void	push_stack_checker(t_stack **src, t_stack **dst)
 {
-	int		i;
-	long	num;
+	t_stack	*tmp;
 
-	i = start;
-	while (argv[i])
-	{
-		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
-		{
-			i++;
-			continue ;
-		}
-		if (!is_number(argv[i]))
-			error_exit();
-		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
-			error_exit();
-		stack_add_back(a, stack_new((int)num));
-		i++;
-	}
-	if (has_duplicates(*a))
-		error_exit();
+	if (!src || !*src)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	tmp->next = *dst;
+	*dst = tmp;
+}
+
+void	pa_checker(t_stack **a, t_stack **b)
+{
+	push_stack_checker(b, a);
+}
+
+void	pb_checker(t_stack **a, t_stack **b)
+{
+	push_stack_checker(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:29:00 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 18:34:18 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:52:22 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 	double	ratio;
 
 	ratio = disorder_ratio(*a);
+	if (stack_is_sorted(*a))
+		return ;
 	if (ratio < 0.2)
 	{
 		bench->strategy = "Adaptive -> Simple";

@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:15:45 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 19:55:25 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 20:11:28 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line/get_next_line_bonus.h"
 
-void	parse_args(t_stack **a, char **argv, int start)
+int	main(int argc, char **argv)
 {
-	int		i;
-	long	num;
+	t_stack	*a;
+	t_stack	*b;
+	int		start;
 
-	i = start;
-	while (argv[i])
-	{
-		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
-		{
-			i++;
-			continue ;
-		}
-		if (!is_number(argv[i]))
-			error_exit();
-		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
-			error_exit();
-		stack_add_back(a, stack_new((int)num));
-		i++;
-	}
-	if (has_duplicates(*a))
+	a = NULL;
+	b = NULL;
+	if (argc == 1)
+		return (0);
+	start = 1;
+	if (!argv[start])
 		error_exit();
+	parse_args_bonus(&a, argv);
+	assign_indexes(a);
+	checker_read(&a, &b);
+	if (stack_is_sorted(a) && !b)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	stack_clear(&a);
+	stack_clear(&b);
+	return (0);
 }

@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   checker_read_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:15:45 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 19:28:38 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 19:28:56 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line/get_next_line_bonus.h"
 
-void	parse_args(t_stack **a, char **argv, int start)
+void	checker_read(t_stack **a, t_stack **b)
 {
-	int		i;
-	long	num;
+	char	*line;
 
-	i = start;
-	while (argv[i])
+	line = get_next_line(0);
+	while (line)
 	{
-		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
+		if (!checker_exec(line, a, b))
 		{
-			i++;
-			continue ;
+			free(line);
+			error_exit();
 		}
-		if (!is_number(argv[i]))
-			error_exit();
-		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
-			error_exit();
-		stack_add_back(a, stack_new((int)num));
-		i++;
+		free(line);
+		line = get_next_line(0);
 	}
-	if (has_duplicates(*a))
-		error_exit();
 }

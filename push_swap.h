@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 18:42:52 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 20:10:39 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,21 @@ int			args_start(char **argv);
 int			has_bench(char **argv);
 void		bench_count(t_bench *bench, char *op);
 void		bench_print(t_bench *bench);
+void		checker_read(t_stack **a, t_stack **b);
+int			checker_exec(char *line, t_stack **a, t_stack **b);
+void		checker_read(t_stack **a, t_stack **b);
+void		sa_checker(t_stack **a);
+void		sb_checker(t_stack **b);
+void		ss_checker(t_stack **a, t_stack **b);
+void		pa_checker(t_stack **a, t_stack **b);
+void		pb_checker(t_stack **a, t_stack **b);
+void		ra_checker(t_stack **a);
+void		rb_checker(t_stack **b);
+void		rr_checker(t_stack **a, t_stack **b);
+void		rra_checker(t_stack **a);
+void		rrb_checker(t_stack **b);
+void		rrr_checker(t_stack **a, t_stack **b);
+void		parse_args_bonus(t_stack **a, char **argv);
 void		stack_print(t_stack *stack);
 
 #endif

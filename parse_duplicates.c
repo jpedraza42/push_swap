@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   parse_duplicates.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:15:45 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 20:15:00 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 20:15:12 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_args(t_stack **a, char **argv, int start)
+int	has_duplicates(t_stack *stack)
 {
-	int		i;
-	long	num;
+	t_stack	*current;
+	t_stack	*runner;
 
-	i = start;
-	while (argv[i])
+	current = stack;
+	while (current)
 	{
-		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
+		runner = current->next;
+		while (runner)
 		{
-			i++;
-			continue ;
+			if (current->value == runner->value)
+				return (1);
+			runner = runner->next;
 		}
-		if (!is_number(argv[i]))
-			error_exit();
-		num = ft_atol(argv[i]);
-		if (num > 2147483647 || num < -2147483648)
-			error_exit();
-		stack_add_back(a, stack_new((int)num));
-		i++;
+		current = current->next;
 	}
-	if (has_duplicates(*a))
-		error_exit();
+	return (0);
 }

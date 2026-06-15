@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_args.c                                       :+:      :+:    :+:   */
+/*   parse_args_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:44:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:15:45 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 20:09:34 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 20:10:20 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_args(t_stack **a, char **argv, int start)
+void	parse_args_bonus(t_stack **a, char **argv)
 {
 	int		i;
 	long	num;
 
-	i = start;
+	i = 1;
 	while (argv[i])
 	{
-		if (is_strategy_arg(argv[i]) || is_bench_arg(argv[i]))
-		{
-			i++;
-			continue ;
-		}
 		if (!is_number(argv[i]))
 			error_exit();
 		num = ft_atol(argv[i]);

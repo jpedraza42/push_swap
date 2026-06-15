@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   checker_reverse_rotate_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/05 11:55:41 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 19:46:46 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 19:47:22 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 19:47:33 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse_rotate_stack(t_stack **stack)
+static void	reverse_rotate_stack_checker(t_stack **stack)
 {
 	t_stack	*before_last;
 	t_stack	*last;
@@ -28,24 +28,18 @@ static void	reverse_rotate_stack(t_stack **stack)
 	*stack = last;
 }
 
-void	rra(t_stack **a, t_bench *bench)
+void	rra_checker(t_stack **a)
 {
-	reverse_rotate_stack(a);
-	bench_count(bench, "rra");
-	ft_printf("rra\n");
+	reverse_rotate_stack_checker(a);
 }
 
-void	rrb(t_stack **b, t_bench *bench)
+void	rrb_checker(t_stack **b)
 {
-	reverse_rotate_stack(b);
-	bench_count(bench, "rrb");
-	ft_printf("rrb\n");
+	reverse_rotate_stack_checker(b);
 }
 
-void	rrr(t_stack **a, t_stack **b, t_bench *bench)
+void	rrr_checker(t_stack **a, t_stack **b)
 {
-	reverse_rotate_stack(a);
-	reverse_rotate_stack(b);
-	bench_count(bench, "rrr");
-	ft_printf("rrr\n");
+	reverse_rotate_stack_checker(a);
+	reverse_rotate_stack_checker(b);
 }

@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 10:40:18 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 17:45:57 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/12 18:51:30 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	move_min_to_top(t_stack **a, t_bench *bench)
 
 void	simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
+	if (stack_size(*a) <= 1)
+		return ;
 	if (stack_size(*a) == 2)
 	{
 		sa(a, bench);
