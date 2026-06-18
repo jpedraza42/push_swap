@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 17:29:00 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 18:52:22 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/17 18:33:25 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,39 @@ double	disorder_ratio(t_stack *a)
 	return ((double)inversions / pairs);
 }
 
+static void	set_bench_strategy(t_bench *bench, char *strategy,
+		char *complexity)
+{
+	bench->strategy = strategy;
+	bench->complexity = complexity;
+}
+
+static void	run_simple(t_stack **a, t_stack **b, t_bench *bench)
+{
+	set_bench_strategy(bench, "Adaptive -> Simple", "O(n^2)");
+	simple_sort(a, b, bench);
+}
+
 void	adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	double	ratio;
 
-	ratio = disorder_ratio(*a);
-	if (stack_is_sorted(*a))
-		return ;
-	if (ratio < 0.2)
+	if (stack_size(*a) <= 5)
 	{
-		bench->strategy = "Adaptive -> Simple";
-		bench->complexity = "O(n^2)";
-		simple_sort(a, b, bench);
+		run_simple(a, b, bench);
+		return ;
 	}
+	ratio = disorder_ratio(*a);
+	if (ratio < 0.2)
+		run_simple(a, b, bench);
 	else if (ratio < 0.5)
 	{
-		bench->strategy = "Adaptive -> Medium";
-		bench->complexity = "O(n*sqrt(n))";
+		set_bench_strategy(bench, "Adaptive -> Medium", "O(n*sqrt(n))");
 		chunk_sort(a, b, bench);
 	}
 	else
 	{
-		bench->strategy = "Adaptive -> Complex";
-		bench->complexity = "O(n log n)";
+		set_bench_strategy(bench, "Adaptive -> Complex", "O(n log n)");
 		radix_sort(a, b, bench);
 	}
 }

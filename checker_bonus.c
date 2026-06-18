@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 19:55:25 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:11:28 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/18 14:54:44 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,11 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		start;
 
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	start = 1;
-	if (!argv[start])
-		error_exit();
 	parse_args_bonus(&a, argv);
 	assign_indexes(a);
 	checker_read(&a, &b);

@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 20:10:39 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/18 14:29:37 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void		bench_count(t_bench *bench, char *op);
 void		bench_print(t_bench *bench);
 void		checker_read(t_stack **a, t_stack **b);
 int			checker_exec(char *line, t_stack **a, t_stack **b);
-void		checker_read(t_stack **a, t_stack **b);
 void		sa_checker(t_stack **a);
 void		sb_checker(t_stack **b);
 void		ss_checker(t_stack **a, t_stack **b);

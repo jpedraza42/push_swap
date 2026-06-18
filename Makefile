@@ -6,7 +6,7 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/15 11:43:37 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/18 11:23:42 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC = main.c \
 	medium_sort.c \
 	simple_sort.c \
 	strategy.c \
+	strategy_exec.c \
 	adaptive.c \
 	bench.c \
 	bench_print.c

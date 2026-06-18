@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:45:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/08 10:44:44 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/18 11:08:21 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ int	is_number(char *str)
 long	ft_atol(const char *nptr)
 {
 	long	rslt;
-	int		sign;
 	int		i;
+	int		sign;
 
 	rslt = 0;
-	sign = 1;
 	i = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
+	sign = 1;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')

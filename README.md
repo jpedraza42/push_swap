@@ -1,102 +1,126 @@
+*This project has been created as part
+of the 42 curriculum by mjebali, jpedraza.*
+
 # Push Swap
 
-## Authors
+> Efficient stack sorting with adaptive strategy selection, benchmarking tools, and complete checker bonus implementation.
 
-* **jpedraza** (Juan Pedraza)
-* **mjebali** (Meriem Jebali)
+# Overview
 
----
-
-## Overview
-
-Push Swap is a sorting project from the 42 curriculum.
-
-The objective is to sort a stack of integers using only a restricted set of operations and two stacks:
+Push Swap is a project from the 42 curriculum whose objective is to sort a stack of integers using only a restricted set of operations and two stacks:
 
 * Stack A
 * Stack B
 
-This implementation includes multiple sorting strategies, an adaptive algorithm selection system, a benchmarking mode, and a complete checker bonus.
+The challenge is not simply to sort the numbers, but to generate the smallest possible number of operations.
+
+This implementation includes multiple sorting algorithms, an adaptive strategy selector, a benchmarking system, and a complete checker bonus.
 
 ---
 
-## Features
+# Project Goals
 
-### Parsing
+The purpose of this project is to:
+
+* Parse and validate integer inputs safely.
+* Detect duplicates and integer overflows.
+* Sort stacks using only the allowed operations.
+* Minimize the number of generated instructions.
+* Compare different sorting approaches.
+* Automatically select the most suitable algorithm depending on the input.
+* Validate solutions using a dedicated checker program.
+
+---
+
+# Features
+
+## Parsing
 
 * Integer validation
 * Overflow detection
 * Duplicate detection
-* Error handling
-* Support for strategy flags
-* Support for benchmark mode
+* Error management
+* Support for multiple arguments
+* Support for quoted strings
 
-### Sorting Strategies
+Examples:
 
-| Strategy | Complexity          |
-| -------- | ------------------- |
-| Simple   | O(n²)               |
-| Medium   | O(n√n)              |
-| Complex  | O(n log n)          |
-| Adaptive | Automatic selection |
-
-### Benchmark Mode
-
-The benchmark system provides:
-
-* Disorder index
-* Selected strategy
-* Theoretical complexity
-* Total operations
-* Per-operation statistics
-
-### Bonus
-
-* Complete checker implementation
-* Instruction validation
-* get_next_line integration
-* Memory-safe execution
-
----
-
-## Allowed Operations
-
-### Swap
-
-```text
-sa
-sb
-ss
+```bash
+./push_swap 5 4 3 2 1
 ```
 
-### Push
-
-```text
-pa
-pb
-```
-
-### Rotate
-
-```text
-ra
-rb
-rr
-```
-
-### Reverse Rotate
-
-```text
-rra
-rrb
-rrr
+```bash
+./push_swap "5 4 3 2 1"
 ```
 
 ---
 
-## Disorder Index
+## Sorting Algorithms
 
-The adaptive algorithm uses a disorder index to estimate how unsorted the stack is.
+### Simple
+
+Designed for very small stacks.
+
+Estimated complexity:
+
+```text
+O(n²)
+```
+
+Used automatically for stacks containing five elements or fewer.
+
+---
+
+### Medium
+
+Chunk-based sorting strategy.
+
+The stack is divided into ranges (chunks).
+
+Elements belonging to the current chunk are progressively moved from stack A to stack B.
+
+Once all chunks have been processed, elements are restored from B to A starting from the largest index.
+
+Estimated complexity:
+
+```text
+O(n√n)
+```
+
+---
+
+### Complex
+
+Radix Sort implementation using indexed values.
+
+All numbers are converted into indexes and sorted bit by bit.
+
+Estimated complexity:
+
+```text
+O(n log n)
+```
+
+---
+
+### Adaptive
+
+Automatically selects the most appropriate strategy.
+
+Selection rules:
+
+```text
+Stack size <= 5          -> Simple
+Disorder index < 20%     -> Simple
+Disorder index < 50%     -> Medium
+Otherwise                -> Complex
+```
+
+---
+
+# Disorder Index
+
+The adaptive algorithm evaluates how unsorted the stack is.
 
 Formula:
 
@@ -126,7 +150,7 @@ Inversions:
 Total pairs:
 
 ```text
-5 * 4 / 2 = 10
+5 × 4 / 2 = 10
 ```
 
 Disorder:
@@ -143,95 +167,52 @@ Result:
 
 ---
 
-## Adaptive Strategy
+# Allowed Operations
 
-The adaptive mode automatically selects the most appropriate algorithm according to the disorder index.
-
-### Selection Rules
+## Swap
 
 ```text
-Disorder < 20%  -> Simple
-Disorder < 50%  -> Medium
-Otherwise       -> Complex
+sa
+sb
+ss
+```
+
+## Push
+
+```text
+pa
+pb
+```
+
+## Rotate
+
+```text
+ra
+rb
+rr
+```
+
+## Reverse Rotate
+
+```text
+rra
+rrb
+rrr
 ```
 
 ---
 
-## Compilation
+# Benchmark Mode
 
-### Main Program
+The benchmark system provides detailed execution statistics.
 
-```bash
-make
-```
-
-Produces:
-
-```text
-push_swap
-```
-
-### Bonus
-
-```bash
-make bonus
-```
-
-Produces:
-
-```text
-checker_bonus
-```
-
-### Rebuild
-
-```bash
-make re
-```
-
----
-
-## Usage
-
-### Automatic Strategy
-
-```bash
-./push_swap 5 4 3 2 1
-```
-
-### Simple Strategy
-
-```bash
-./push_swap --simple 5 4 3 2 1
-```
-
-### Medium Strategy
-
-```bash
-./push_swap --medium 5 4 3 2 1
-```
-
-### Complex Strategy
-
-```bash
-./push_swap --complex 5 4 3 2 1
-```
-
-### Adaptive Strategy
-
-```bash
-./push_swap --adaptive 5 4 3 2 1
-```
-
----
-
-## Benchmark Mode
+Usage:
 
 ```bash
 ./push_swap --bench 5 4 3 2 1
 ```
 
-Example output:
+Example:
 
 ```text
 [bench] disorder: 100.00%
@@ -255,12 +236,80 @@ Benchmark information is written to stderr.
 
 ---
 
-## Checker Bonus
+# Manual Strategy Selection
 
-Validate a sequence of operations:
+## Simple
 
 ```bash
-./push_swap 5 4 3 2 1 | ./checker_bonus 5 4 3 2 1
+./push_swap --simple 5 4 3 2 1
+```
+
+## Medium
+
+```bash
+./push_swap --medium 5 4 3 2 1
+```
+
+## Complex
+
+```bash
+./push_swap --complex 5 4 3 2 1
+```
+
+## Adaptive
+
+```bash
+./push_swap --adaptive 5 4 3 2 1
+```
+
+---
+
+# Compilation
+
+## Main Program
+
+```bash
+make
+```
+
+Produces:
+
+```text
+push_swap
+```
+
+---
+
+## Bonus
+
+```bash
+make bonus
+```
+
+Produces:
+
+```text
+checker
+```
+
+---
+
+## Rebuild
+
+```bash
+make re
+```
+
+---
+
+# Checker Bonus
+
+The checker validates a sequence of operations.
+
+Example:
+
+```bash
+./push_swap 5 4 3 2 1 | ./checker 5 4 3 2 1
 ```
 
 Output:
@@ -269,10 +318,12 @@ Output:
 OK
 ```
 
-### Invalid Sequence
+---
+
+Invalid sequence:
 
 ```bash
-echo "sa" | ./checker_bonus 1 2 3
+echo "sa" | ./checker 1 2 3
 ```
 
 Output:
@@ -281,10 +332,12 @@ Output:
 KO
 ```
 
-### Invalid Instruction
+---
+
+Invalid instruction:
 
 ```bash
-echo "hello" | ./checker_bonus 1 2 3
+echo "hello" | ./checker 1 2 3
 ```
 
 Output:
@@ -295,51 +348,104 @@ Error
 
 ---
 
-## Project Structure
+# Performance Examples
+
+Three reversed values:
+
+```bash
+./push_swap 3 2 1 | wc -l
+```
+
+Output:
+
+```text
+2
+```
+
+---
+
+Validation:
+
+```bash
+./push_swap 3 2 1 | ./checker 3 2 1
+```
+
+Output:
+
+```text
+OK
+```
+
+---
+
+# Project Structure
 
 ```text
 push_swap/
 ├── libft/
 ├── get_next_line/
+├── Makefile
 ├── push_swap.h
-├── push_swap
-├── checker_bonus
-├── parsing
-├── stack operations
-├── sorting algorithms
-├── benchmark
-└── checker bonus
+├── main.c
+├── parse_args.c
+├── parse_utils.c
+├── stack_init.c
+├── stack_utils.c
+├── simple_sort.c
+├── medium_sort.c
+├── complex_sort.c
+├── adaptive.c
+├── bench.c
+├── bench_print.c
+└── checker.c
 ```
 
 ---
 
-## Validation
+# Validation
 
-### Norminette
+Norminette:
 
 ```bash
 norminette
 ```
 
-### Valgrind
+Valgrind:
 
 ```bash
-valgrind --leak-check=full ./push_swap --bench 5 4 3 2 1
+valgrind --leak-check=full ./push_swap 5 4 3 2 1
 ```
 
 ```bash
-valgrind --leak-check=full ./checker_bonus 5 4 3 2 1
+echo -n "" | valgrind --leak-check=full ./checker 5 4 3 2 1
+```
+
+Expected result:
+
+```text
+All heap blocks were freed -- no leaks are possible
+ERROR SUMMARY: 0 errors
 ```
 
 ---
 
-## Status
+# Status
 
 ```text
 ✓ Mandatory Part
 ✓ Bonus Part
-✓ Benchmark Mode
+✓ Checker
+✓ get_next_line Integration
 ✓ Adaptive Strategy
+✓ Benchmark Mode
+✓ Quoted String Parsing
 ✓ Norminette Clean
 ✓ Valgrind Clean
 ```
+
+---
+
+# License
+
+This project was developed as part of the 42 School curriculum.
+All rights belong to their respective authors.
