@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/18 14:29:37 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/19 11:17:49 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct t_stack
+typedef struct s_stack
 {
 	int				value;
 	int				index;
-	struct t_stack	*next;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef enum e_strategy
