@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 10:40:18 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/18 14:44:31 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/19 10:54:02 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,17 @@ void	simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 	int	size;
 
 	size = stack_size(*a);
+	if (size <= 1)
+		return ;
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
 			sa(a, bench);
+		return ;
 	}
-	else if (size == 3)
-		sort_three(a, bench);
-	else if (size == 4 || size == 5)
-	{
-		while (stack_size(*a) > 3)
-			push_min_to_b(a, b, bench);
-		sort_three(a, bench);
-		while (*b)
-			pa(a, b, bench);
-	}
+	while (stack_size(*a) > 3)
+		push_min_to_b(a, b, bench);
+	sort_three(a, bench);
+	while (*b)
+		pa(a, b, bench);
 }
