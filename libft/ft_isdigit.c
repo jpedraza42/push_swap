@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/20 10:55:47 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/28 10:27:31 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+int	ft_isdigit(int c)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }
-
-void	error_free_exit(t_stack **a)
+/*
+int    main()
 {
-	stack_clear(a);
-	error_exit();
+	printf ("%d\n", ft_isdigit (5));
+	printf ("%d\n", isdigit (5));
+	return (0);
 }
+*/

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/05/06 10:51:52 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/05/06 11:20:13 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+	t_list	*end;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	end = *lst;
+	while (end->next != NULL)
+		end = end->next;
+	end->next = new;
+	new->next = NULL;
+	return ;
 }

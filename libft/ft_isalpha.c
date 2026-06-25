@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/20 13:30:48 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/27 10:18:59 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+int	ft_isalpha(int c)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
+/*
+int	main()
+{
+	int	c;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	c = 'Q';
+	printf (("%d\n"), ft_isalpha (c));
+	printf (("%d\n"), isalpha (c));
+	return (0);
 }
+*/

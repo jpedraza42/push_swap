@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/05/15 13:03:22 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/03 17:02:28 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+int	ft_putnbr(int n)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+	long	nb;
+	int		len;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	nb = n;
+	len = 0;
+	if (nb < 0)
+	{
+		len += ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+		len += ft_putnbr(nb / 10);
+	len += ft_putchar((nb % 10) + '0');
+	return (len);
 }

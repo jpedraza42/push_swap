@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/23 19:01:52 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/27 18:32:23 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	write (fd, &c, 1);
 }
-
-void	error_free_exit(t_stack **a)
+/*
+int	main (void)
 {
-	stack_clear(a);
-	error_exit();
+	int 	fd = 1;
+	char	c = 'P';
+	ft_putchar_fd (c, fd);
+	return (0);
 }
+*/

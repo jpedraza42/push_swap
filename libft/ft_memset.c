@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/21 11:19:02 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/05/04 18:02:27 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+	size_t			i;
+	unsigned char	*ptr;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (ptr);
 }
+/*
+int	main(void)
+{
+	char	s[] = "Esta es la prueba";
+	int		c;
+	size_t	n;
+
+	c = 1;
+	n = 5;
+	printf ("%s\n", (char *)ft_memset(s, c, n));
+	printf ("%s\n", (char *)memset(s, c, n));
+	return (0);
+}
+*/

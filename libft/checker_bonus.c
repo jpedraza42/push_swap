@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/12 19:21:50 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/12 19:22:11 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "get_next_line/get_next_line.h"
 
-void	error_exit(void)
+int	main(int argc, char **argv)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+	t_stack	*a;
+	t_stack	*b;
+	int		start;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	a = NULL;
+	b = NULL;
+	if (argc == 1)
+		return (0);
+	start = args_start(argv);
+	if (!argv[start])
+		error_exit();
+	parse_args(&a, argv, start);
+	assign_indexes(a);
+	checker_read(&a, &b);
+	if (stack_is_sorted(a) && !b)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	stack_clear(&a);
+	stack_clear(&b);
+	return (0);
 }

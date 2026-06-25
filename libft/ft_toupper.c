@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/20 16:31:21 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/27 10:51:07 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+int	ft_toupper(int c)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	if (c >= 'a' && c <= 'z')
+		c = (c - 32);
+	return (c);
 }
+/*
+int	main(void)
+{
+	int	c;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	c = 112;
+	printf ("%d\n", ft_toupper (c));
+	printf ("%d\n", toupper (c));
+	return (0);
 }
+*/

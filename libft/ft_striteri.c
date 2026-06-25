@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/23 18:10:15 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/27 18:23:21 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	size_t	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f((unsigned int)i, &s[i]);
+		i++;
+	}
+	return ;
+}
+/*
+void	ft_test(unsigned int i, char *c)
+{
+	(void)i;
+	*c = ((char)toupper((unsigned char)*c));
 }
 
-void	error_free_exit(t_stack **a)
+int	main(void)
 {
-	stack_clear(a);
-	error_exit();
+	char	s[] = "Esto es";
+	
+	ft_striteri(s, ft_test);
+	printf("%s\n", s);
+	return (0);
 }
+*/

@@ -6,13 +6,13 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:28:34 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/17 12:36:05 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/19 17:01:54 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	has_index_under(t_stack *stack, int limit)
+int	has_index_under(t_stack *stack, int limit)//below
 {
 	while (stack)
 	{

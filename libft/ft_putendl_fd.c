@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_error.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 10:53:38 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:03 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/04/23 19:22:26 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/04/28 11:40:55 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_exit(void)
+void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
-}
+	int	i;
 
-void	error_free_exit(t_stack **a)
-{
-	stack_clear(a);
-	error_exit();
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write (fd, &s[i], 1);
+		i++;
+	}
+	write (fd, "\n", 1);
 }
+/*
+int	main (void)
+{
+	int 	fd = 1;
+	char	c[] = "La prueba 42.";
+	ft_putendl_fd (c, fd);
+	return (0);
+}
+*/
