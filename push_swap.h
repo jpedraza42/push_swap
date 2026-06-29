@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 13:57:05 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/24 11:09:29 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/29 13:04:49 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,9 @@ void		rrb_checker(t_stack **b);
 void		rrr_checker(t_stack **a, t_stack **b);
 void		parse_args_bonus(t_stack **a, char **argv);
 void		error_free_exit(t_stack **a);
+void		bench_setup(t_bench *bench, char **argv);
+void		print_ops(char *op, t_bench *bench);
+void		bench_print_total(t_bench *bench);
 void		stack_print(t_stack *stack);
 
 #endif

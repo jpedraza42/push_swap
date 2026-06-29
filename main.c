@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 12:45:44 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 18:06:25 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:37:16 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	bench_init(&bench, has_bench(argv));
+	bench_setup(&bench, argv);
 	strategy = get_strategy(argv);
 	start = args_start(argv);
 	if (!argv[start])

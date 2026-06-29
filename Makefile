@@ -6,7 +6,7 @@
 #    By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 13:22:47 by jpedraza          #+#    #+#              #
-#    Updated: 2026/06/18 11:23:42 by jpedraza         ###   ########.fr        #
+#    Updated: 2026/06/29 12:37:31 by jpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ SRC = main.c \
 	strategy_exec.c \
 	adaptive.c \
 	bench.c \
-	bench_print.c
+	print_ops.c \
+	bench_print.c \
+	bench_setup.c
 
 COMMON_SRC = stack_init.c \
 	stack_utils.c \

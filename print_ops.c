@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   print_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:09:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/29 12:32:33 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/29 10:52:25 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/29 13:08:48 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_stack(t_stack **src, t_stack **dst)
+void	print_ops(char *op, t_bench *bench)
 {
-	t_stack	*tmp;
-
-	if (!src || !*src)
+	if (!bench)
 		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
+	ft_putstr_fd(op, 1);
+	ft_putchar_fd('\n', 1);
 }
 
-void	pa(t_stack **a, t_stack **b, t_bench *bench)
+void	bench_print_total(t_bench *bench)
 {
-	push_stack(b, a);
-	bench_count(bench, "pa");
-	print_ops("pa", bench);
-}
-
-void	pb(t_stack **a, t_stack **b, t_bench *bench)
-{
-	push_stack(a, b);
-	bench_count(bench, "pb");
-	print_ops("pb", bench);
+	if (!bench)
+		return ;
+	ft_putnbr_fd(bench->total, 1);
+	ft_putchar_fd('\n', 1);
 }

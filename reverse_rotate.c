@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 11:55:41 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 19:46:46 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:32:52 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	rra(t_stack **a, t_bench *bench)
 {
 	reverse_rotate_stack(a);
 	bench_count(bench, "rra");
-	ft_printf("rra\n");
+	print_ops("rra", bench);
 }
 
 void	rrb(t_stack **b, t_bench *bench)
 {
 	reverse_rotate_stack(b);
 	bench_count(bench, "rrb");
-	ft_printf("rrb\n");
+	print_ops("rrb", bench);
 }
 
 void	rrr(t_stack **a, t_stack **b, t_bench *bench)
@@ -47,5 +47,5 @@ void	rrr(t_stack **a, t_stack **b, t_bench *bench)
 	reverse_rotate_stack(a);
 	reverse_rotate_stack(b);
 	bench_count(bench, "rrr");
-	ft_printf("rrr\n");
+	print_ops("rrr", bench);
 }

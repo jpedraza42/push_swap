@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   bench_setup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/04 14:09:07 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/29 12:32:33 by jpedraza         ###   ########.fr       */
+/*   Created: 2026/06/29 12:35:36 by jpedraza          #+#    #+#             */
+/*   Updated: 2026/06/29 13:34:05 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_stack(t_stack **src, t_stack **dst)
+void	bench_setup(t_bench *bench, char **argv)
 {
-	t_stack	*tmp;
-
-	if (!src || !*src)
-		return ;
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dst;
-	*dst = tmp;
-}
-
-void	pa(t_stack **a, t_stack **b, t_bench *bench)
-{
-	push_stack(b, a);
-	bench_count(bench, "pa");
-	print_ops("pa", bench);
-}
-
-void	pb(t_stack **a, t_stack **b, t_bench *bench)
-{
-	push_stack(a, b);
-	bench_count(bench, "pb");
-	print_ops("pb", bench);
+	bench_init(bench, has_bench(argv));
 }

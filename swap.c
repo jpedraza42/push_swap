@@ -6,7 +6,7 @@
 /*   By: jpedraza < jpedraza@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 10:58:27 by jpedraza          #+#    #+#             */
-/*   Updated: 2026/06/12 11:45:32 by jpedraza         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:33:24 by jpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	sa(t_stack **a, t_bench *bench)
 {
 	swap_stack(a);
 	bench_count(bench, "sa");
-	ft_printf("sa\n");
+	print_ops("sa", bench);
 }
 
 void	sb(t_stack **b, t_bench *bench)
 {
 	swap_stack(b);
 	bench_count(bench, "sb");
-	ft_printf("sb\n");
+	print_ops("sb", bench);
 }
 
 void	ss(t_stack **a, t_stack **b, t_bench *bench)
@@ -45,5 +45,5 @@ void	ss(t_stack **a, t_stack **b, t_bench *bench)
 	swap_stack(a);
 	swap_stack(b);
 	bench_count(bench, "ss");
-	ft_printf("ss\n");
+	print_ops("ss", bench);
 }
