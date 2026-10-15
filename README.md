@@ -1,5 +1,5 @@
 *This project has been created as part
-of the 42 curriculum by mjebali, jpedraza.*
+of the 42 Málaga Fundación Telefónica curriculum by mjebali, jpedraza.*
 
 # Push Swap
 
@@ -7,7 +7,7 @@ of the 42 curriculum by mjebali, jpedraza.*
 
 # Overview
 
-Push Swap is a project from the 42 curriculum whose objective is to sort a stack of integers using only a restricted set of operations and two stacks:
+Push Swap is a project from the 42 Málaga Fundación Telefónica curriculum whose objective is to sort a stack of integers using only a restricted set of operations and two stacks:
 
 * Stack A
 * Stack B
@@ -449,3 +449,12 @@ ERROR SUMMARY: 0 errors
 
 This project was developed as part of the 42 School curriculum.
 All rights belong to their respective authors.
+
+
+---
+
+## Engineering notes
+
+The adaptive strategy evaluates the input's disorder using a pairwise inversion count. This preprocessing currently uses a quadratic comparison loop, so complexity labels describing a selected sorting algorithm should not be interpreted as the asymptotic complexity of the whole adaptive pipeline. For very large stacks, review integer widths and intermediate arithmetic in the inversion and pair-count calculations.
+
+Benchmark figures should be independently reproduced before they are presented as measured performance claims. This is an educational implementation developed in the context of **42 Málaga Fundación Telefónica**; authorship and contributions are identified at the top of this README.
